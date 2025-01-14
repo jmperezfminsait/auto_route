@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:code_builder/code_builder.dart';
 import 'package:dart_style/dart_style.dart';
 
@@ -95,7 +96,7 @@ String generateLibrary(
       ]),
   );
 
-  return [_header, DartFormatter().format(library.accept(emitter).toString())]
+  return [_header, DartFormatter(languageVersion: DartFormatter.latestLanguageVersion).format(library.accept(emitter).toString())]
       .join('\n');
 }
 
